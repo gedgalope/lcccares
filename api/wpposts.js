@@ -20,5 +20,11 @@ export default {
   },
   getComfortContent(){
     return api().get("wp/v2/posts/100")
+  },
+  getVMG(){
+    return api().get("wp/v2/posts/256")
+  },
+  getCompanyInfo(){
+    return api().get("wp/v2/posts/259")
   }
 }

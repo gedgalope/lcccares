@@ -25,8 +25,16 @@ export default {
   getClinicMedia() {
     return api().get("wp/v2/media?parent=108")
   },
-
   getComfortMedia() {
     return api().get("wp/v2/media?parent=100")
   },
+  getParallax(){
+    return api().get("wp/v2/media?parent=191")
+  },
+  getMediaParent(id){
+    return api().get("wp/v2/media?parent=" + id)
+  },
+  getGallery(){
+    return api().get("wp/v2/media?parent=275&per_page=30")
+  }
 }

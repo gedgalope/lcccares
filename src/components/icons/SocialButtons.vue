@@ -6,7 +6,12 @@
           <span class="hidden-sm-and-down">
             <v-layout row wrap class="pa-0 ma-0">
               <v-flex v-for="(socialmedia, index) in social" :key="index" xs2 shrink>
-                <v-btn :color="socialmedia.bgColor" :round="Round" :icon="Icon">
+                <v-btn
+                  :color="socialmedia.bgColor"
+                  :round="Round"
+                  :icon="Icon"
+                  @click="shareToSocial(index)"
+                >
                   <v-icon>{{socialmedia.icon}}</v-icon>
                 </v-btn>
               </v-flex>
@@ -57,6 +62,29 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    /*eslint-disable*/
+    shareToSocial(social) {
+      let currentURL = window.location.href;
+      // console.log(currentURL)
+      switch (social) {
+        case 0:
+          window.open("https://www.facebook.com/sharer/sharer.php");
+          break;
+        case 1:
+          window.open("https://twitter.com/intent/tweet");
+          break;
+        case 2:
+          window.open("https://pinterest.com/pin/create/button");
+          break;
+        case 3:
+          window.open("https://www.linkedin.com/shareArticle");
+          break;
+        default:
+          break;
+      }
+    }
   },
   props: {
     Round: {

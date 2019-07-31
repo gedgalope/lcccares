@@ -9,10 +9,10 @@
 
       <span class="hidden-xs-only">
         <v-tabs color="transparent">
-          <v-tab large class="vtab text-capitalize">Home</v-tab>
-          <v-tab large class="vtab text-capitalize">Services</v-tab>
-          <v-tab large class="vtab text-capitalize">About Us</v-tab>
-          <v-tab large class="vtab text-capitalize">Contact Us</v-tab>
+          <v-tab large class="vtab text-capitalize" @click="toPage('home')" >Home</v-tab>
+          <v-tab large class="vtab text-capitalize" @click="toPage('services')" >Services</v-tab>
+          <v-tab large class="vtab text-capitalize" @click="toPage('about')" >About Us</v-tab>
+          <v-tab large class="vtab text-capitalize" @click="toPage('contact')" >Contact Us</v-tab>
         </v-tabs>
       </span>
       <span class="hidden-sm-and-up">
@@ -22,16 +22,16 @@
           </v-btn>
           <v-list>
             <v-list-tile>
-              <v-list-tile-title>Home</v-list-tile-title>
+              <v-list-tile-title @click="toPage('home')">Home</v-list-tile-title>
             </v-list-tile>
             <v-list-tile>
-              <v-list-tile-title>Services</v-list-tile-title>
+              <v-list-tile-title @click="toPage('services')">Services</v-list-tile-title>
             </v-list-tile>
             <v-list-tile>
-              <v-list-tile-title>About Us</v-list-tile-title>
+              <v-list-tile-title @click="toPage('about')">About Us</v-list-tile-title>
             </v-list-tile>
             <v-list-tile>
-              <v-list-tile-title>Contact Us</v-list-tile-title>
+              <v-list-tile-title @click="toPage('contact')">Contact Us</v-list-tile-title>
             </v-list-tile>
           </v-list>
         </v-menu>
@@ -41,19 +41,32 @@
     <v-content>
       <router-view></router-view>
     </v-content>
+    <v-footer height="auto" dark >
+      <app-footer></app-footer>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
+import FooterVue from "./views/Footer";
 export default {
   name: "App",
-  created() {
+  created() {},
+  components: {
+    "app-footer": FooterVue
   },
-  components: {},
   data() {
     return {
       //
     };
-  }
+  },
+  methods: {
+    /*eslint-disable*/
+    toPage(link){
+      // console.log(link)
+      this.$router.replace({name:link});
+    }
+  },
+
 };
 </script>

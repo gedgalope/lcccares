@@ -55,7 +55,7 @@ import { mapState, mapMutations } from "vuex";
 import FacilitiesMediaVue from './FacilitiesMedia.vue';
 export default {
   name: "facilities",
-  created() {
+  beforeCreate() {
     this.$store.dispatch("media/getroomsMedia");
     this.$store.dispatch("posts/getFacilitiesContent");
   },

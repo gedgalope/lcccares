@@ -1,9 +1,15 @@
 <template>
   <!-- <HelloWorld /> -->
-  <div class="home-page pa-0 ma-0">
-    <home-carousel></home-carousel>
-    <divider class="py-4 my-4" :label="Label"></divider>
+  <div class="home-page">
+    <home-carousel block></home-carousel>
+    <divider class="py-4 my-4" :label="facilities_label"></divider>
     <facilities></facilities>
+    <v-parallax  :src="parallax_src" class="parallax">
+      <divider class="py-4 my-4" :label="services_label"></divider>
+      <home-services></home-services>
+    </v-parallax>
+    <divider class="py-4 my-4" :label="team_label"></divider>
+    <home-team></home-team>
   </div>
 </template>
 
@@ -11,20 +17,41 @@
 // import HelloWorld from '../components/HelloWorld'
 import HomeCarousel from "../components/Home/HomeCarousel";
 import DividerVue from "../components/util/Divider.vue";
-import FacilitiesVue from '../components/Home/Facilities.vue';
+import FacilitiesVue from "../components/Home/Facilities.vue";
+import TeamVue from "../components/Home/Team.vue";
+import { mapState } from "vuex";
+import ServicesVue from "../components/Home/Services.vue";
 
 export default {
   name: "home-page",
   data() {
     return {
-      Label: "Take a Look at our Facilities"
+      facilities_label: "Take a Look at our Facilities",
+      services_label: "What we can provide",
+      team_label: "Meet Our Team!"
     };
+  },
+  created() {
+    this.$store.dispatch("media/getParallax");
+  },
+  computed: {
+    ...mapState({
+      parallax_src: state => state.media.parallax_src
+    })
   },
   components: {
     // HelloWorld
     HomeCarousel,
-    'divider': DividerVue,
-    'facilities':FacilitiesVue,
+    divider: DividerVue,
+    facilities: FacilitiesVue,
+    "home-team": TeamVue,
+    "home-services": ServicesVue
   }
 };
 </script>
+
+<style scoped>
+.parallax {
+  height: 100% !important;
+}
+</style>

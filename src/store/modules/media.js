@@ -12,7 +12,8 @@ const state={
   ],
   CarouselMedia:[],
   facilitiesMedia:{},
-
+  parallax_src:'',
+  gallery:[],
 }
 
 const mutations={
@@ -21,6 +22,12 @@ const mutations={
   },
   storeFacilitesMedia(state,payload){
     state.facilitiesMedia = payload
+  },
+  storeParallax(state,payload){
+    state.parallax_src = payload
+  },
+  storeGalllery(state,payload){
+    state.gallery =[...payload]
   }
 }
 const getters={
@@ -55,7 +62,23 @@ const actions={
     objectBuffer.kitchen=[...copyData(kitchen.data)];
     objectBuffer.comfort=[...copyData(comfort.data)];
     objectBuffer.room=[...copyData(room.data)];
+    // console.log(objectBuffer)
     commit('storeFacilitesMedia',objectBuffer)
+  },
+  async getParallax({commit}){
+    let src  = await wpmedia.getParallax();
+    /*eslint-disable */
+    // console.log(src.data[0].source_url);
+    commit("storeParallax",src.data[0].source_url);
+  },
+  async getGalleryItems({commit}){
+    let itemBuffer=[];
+    let mediaItems = await wpmedia.getGallery();
+    mediaItems.data.forEach(mediaItem => {
+      itemBuffer.push(mediaItem.source_url)
+    });
+    // console.log(itemBuffer)
+    commit("storeGalllery",itemBuffer);
   }
 
 }

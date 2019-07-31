@@ -12,6 +12,9 @@ const state={
   "https://images.pexels.com/photos/80597/burger-hamburger-onion-tomatoe-80597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   "https://images.pexels.com/photos/47320/burger-bacon-snack-fast-food-47320.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   "https://images.pexels.com/photos/327135/pexels-photo-327135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  ],
+  service_icons:[
+    'fa-home', 'fa-walking','fa-file-prescription','fa-shower','fa-hands-helping','fa-car','fa-birthday-cake','fa-utensils'
   ]
 }
 

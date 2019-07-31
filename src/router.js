@@ -5,7 +5,7 @@ import PageNotFound from './views/404.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   
   mode: 'history',
   base: process.env.BASE_URL,
@@ -25,9 +25,21 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
+      path:'/contactUs',
+      name:'contact',
+      component: ()=> import('./views/Contact.vue')
+    },
+    {
+      path:'/services',
+      name:'services',
+      component: ()=> import('./views/Services.vue')
+    },
+    {
       path:'/404',
       name:'page-not-found',
       component: PageNotFound,
     }
   ]
 })
+
+export default router;

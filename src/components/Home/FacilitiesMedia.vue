@@ -1,6 +1,6 @@
 <template>
-  <v-dialog fullscreen v-model="ishidden" >
-  <!-- :scrollable="true" -->
+  <v-dialog fullscreen v-model="ishidden">
+    <!-- :scrollable="true" -->
     <v-card class="card">
       <v-container align-center grid-list-md>
         <v-flex offset-sm12>
@@ -92,9 +92,30 @@ export default {
     photos: {
       type: Array
     },
-    content:{
-      type:String,
-      default:"We care for your loved ones."
+    content: {
+      type: String,
+      default: "We care for your loved ones."
+    },
+    imageIndex: {
+      type: Number,
+      default: 0
+    }
+  },
+
+  data() {
+    return {
+      // imageIndex: 0,
+      panel: 0
+    };
+  },
+  watch: {
+    imageIndex(newValue) {
+      this.imageIndex = newValue;
+      // this.selectedImage([newValue, true]);
+      // this.$store.commit('selectedImage',[newValue,false]);
+      var elemntId = "#button" + newValue;
+      var elemnt = document.querySelector(elemntId);
+      elemnt.scrollIntoView({ inline: "center" });
     }
   },
   computed: {
@@ -102,18 +123,12 @@ export default {
       ishidden: state => state.utils.ishidden
     })
   },
-  data() {
-    return {
-      imageIndex: 0,
-      panel: 0
-    };
-  },
-  watch: {},
   methods: {
     ...mapMutations({
       changeState: "utils/changeState"
     }),
     close() {
+      this.imageIndex = 0;
       this.changeState();
     },
     next() {
@@ -141,7 +156,7 @@ export default {
       this.imageIndex = newIndex;
       var elemntId = "#button" + newIndex;
       var elemnt = document.querySelector(elemntId);
-      elemnt.scrollIntoView({inline: "center"});
+      elemnt.scrollIntoView({ inline: "center" });
     }
   }
 };
