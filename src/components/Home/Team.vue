@@ -4,7 +4,7 @@
     <v-container grid-list-md fill-height>
       <v-layout align-center row wrap>
         <template v-for="(member, index) in team_members">
-          <v-flex :key="index" xs4>
+          <v-flex :key="index" xs12 sm6 md4 lg4 xl4>
             <v-card min-height="350px"  >
               <v-img height="200px" :src="member.media"></v-img>
               <v-card-text class="pa-0 ma-0">

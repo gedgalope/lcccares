@@ -24,7 +24,7 @@
                 <li>-->
                 <span>
                   <!-- <v-img :src="photos[this.imageIndex].url" :aspect-ratio="1.7778"></v-img> -->
-                  <v-img :src="photos[imageIndex]" :aspect-ratio="1.7778"></v-img>
+                  <v-img :src="photos[newImageIndex]" :aspect-ratio="1.7778"></v-img>
                 </span>
                 <!-- </li>
                 </ul>-->
@@ -65,7 +65,7 @@
                   <v-btn
                     style="margin:0px; padding:0px; width:100px; height:67px;"
                     @click="newIndex(index)"
-                    :class="{'imageInactive':imageIndex != index,'imageActive':imageIndex == index}"
+                    :class="{'imageInactive':newImageIndex != index,'imageActive':newImageIndex == index}"
                     :id="'button'+index"
                   >
                     <v-img
@@ -104,13 +104,13 @@ export default {
 
   data() {
     return {
-      // imageIndex: 0,
+      newImageIndex: this.imageIndex,
       panel: 0
     };
   },
   watch: {
-    imageIndex(newValue) {
-      this.imageIndex = newValue;
+    newImageIndex(newValue) {
+      this.newImageIndex = newValue;
       // this.selectedImage([newValue, true]);
       // this.$store.commit('selectedImage',[newValue,false]);
       var elemntId = "#button" + newValue;
@@ -128,32 +128,32 @@ export default {
       changeState: "utils/changeState"
     }),
     close() {
-      this.imageIndex = 0;
+      this.newImageIndex = 0;
       this.changeState();
     },
     next() {
       // console.log(this.imageIndex + String (this.photos.length))
-      if (this.imageIndex == this.photos.length - 1) {
-        this.imageIndex = 0;
+      if (this.newImageIndex == this.photos.length - 1) {
+        this.newImageIndex = 0;
       } else {
-        this.imageIndex++;
+        this.newImageIndex++;
       }
-      var elemntId = "#button" + this.imageIndex;
+      var elemntId = "#button" + this.newImageIndex;
       var elemnt = document.querySelector(elemntId);
       elemnt.scrollIntoView({ inline: "center" });
     },
     prev() {
-      if (this.imageIndex == 0) {
-        this.imageIndex = this.photos.length - 1;
+      if (this.newImageIndex == 0) {
+        this.newImageIndex = this.photos.length - 1;
       } else {
-        this.imageIndex--;
+        this.newImageIndex--;
       }
-      var elemntId = "#button" + this.imageIndex;
+      var elemntId = "#button" + this.newImageIndex;
       var elemnt = document.querySelector(elemntId);
       elemnt.scrollIntoView({ inline: "center" });
     },
     newIndex(newIndex) {
-      this.imageIndex = newIndex;
+      this.newImageIndex = newIndex;
       var elemntId = "#button" + newIndex;
       var elemnt = document.querySelector(elemntId);
       elemnt.scrollIntoView({ inline: "center" });

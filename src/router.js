@@ -25,7 +25,7 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path:'/contactUs',
+      path:'/contact',
       name:'contact',
       component: ()=> import('./views/Contact.vue')
     },

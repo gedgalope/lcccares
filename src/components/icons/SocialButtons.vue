@@ -1,15 +1,14 @@
 <template>
   <div class="SocialButtons">
     <v-container grid-list-xs class="pa-0 ma-0">
-      <v-layout row wrap>
-        <v-flex xs6 class="pa-0 ma-0">
-          <span class="hidden-sm-and-down">
-            <v-layout row wrap class="pa-0 ma-0">
-              <v-flex v-for="(socialmedia, index) in social" :key="index" xs2 shrink>
+      <v-layout row>
+        <v-flex xs12 sm6 md6 lg6 xl6 class="pa-0 ma-0">
+          <span class="hidden-sm-and-down text-xs-center">
+            <v-layout row class="pa-0 ma-0">
+              <v-flex v-for="(socialmedia, index) in social" :key="index" xs3 shrink>
                 <v-btn
                   :color="socialmedia.bgColor"
-                  :round="Round"
-                  :icon="Icon"
+                  round
                   @click="shareToSocial(index)"
                 >
                   <v-icon>{{socialmedia.icon}}</v-icon>
@@ -21,14 +20,13 @@
           <span class="hidden-md-and-up">
             <v-layout row wrap class="pa-0 ma-0">
               <v-flex v-for="(socialmedia, index) in social" :key="index" xs3 shrink>
-                <v-btn :color="socialmedia.bgColor" icon>
+                <v-btn :color="socialmedia.bgColor" icon @click="shareToSocial(index)">
                   <v-icon>{{socialmedia.icon}}</v-icon>
                 </v-btn>
               </v-flex>
             </v-layout>
           </span>
         </v-flex>
-        <v-flex xs6></v-flex>
       </v-layout>
     </v-container>
   </div>
@@ -66,7 +64,7 @@ export default {
   methods: {
     /*eslint-disable*/
     shareToSocial(social) {
-      let currentURL = window.location.href;
+      // let currentURL = window.location.href;
       // console.log(currentURL)
       switch (social) {
         case 0:
@@ -87,14 +85,6 @@ export default {
     }
   },
   props: {
-    Round: {
-      type: Boolean,
-      default: false
-    },
-    Icon: {
-      type: Boolean,
-      default: false
-    }
   }
 };
 </script>

@@ -21,13 +21,19 @@
               <v-flex xs12>
                 <v-container grid-list-xs fill-height class="px-0 pb-0 ">
                   <v-layout row wrap align-content-start>
-                    <v-flex xs6>
+                    <v-flex xs12 sm6 md6 xl6 lg6>
                       <strong>
                         <v-icon>mdi-phone</v-icon>
                       </strong>
                       {{company_info.comp_telnum}}
                     </v-flex>
-                    <v-flex xs6 class="text-xs-right">
+                    <v-flex sm6 md6 xl6 lg6 class="text-xs-right hidden-xs-only">
+                      <strong>
+                        <v-icon>mdi-email</v-icon>
+                      </strong>
+                      <span class="email" @click="redirectEmail()">{{company_info.comp_email}}</span>
+                    </v-flex>
+                    <v-flex xs12 class="hidden-sm-and-up">
                       <strong>
                         <v-icon>mdi-email</v-icon>
                       </strong>

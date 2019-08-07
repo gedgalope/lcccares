@@ -3,14 +3,14 @@
     <v-container grid-list-xs fill-height>
       <v-layout align-center row wrap>
         <template v-for="(service, index) in services">
-          <v-flex :key="index" xs4>
+          <v-flex :key="index" xs12 sm6 md4 lg4 xl4>
             <v-card flat color="transparent">
               <v-container grid-list-xs fill-height>
                 <v-layout align-center row wrap>
-                  <v-flex justify-space-around xs3 class="text-xs-center pa-0 ma-0">
+                  <v-flex justify-space-around sm3 md3 lg3 xl3 class="text-xs-center pa-0 ma-0 hidden-xs-only">
                     <v-icon color="#00C853" size="50px">{{service_icons[index]}}</v-icon>
                   </v-flex>
-                  <v-flex xs9 class="pa-0 ma-0">
+                  <v-flex xs7 sm9 md9 lg9 xl9 class="pa-0 ma-0">
                     <v-container grid-list-xs fill-height class="pa-0 ma-0">
                       <v-layout column wrap align-center class="pa-0 ma-0">
                         <v-flex

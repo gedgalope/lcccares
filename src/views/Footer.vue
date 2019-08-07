@@ -5,7 +5,7 @@
         <v-flex xs12>
           <v-container grid-list-xs fill-height>
             <v-layout row wrap align-center>
-              <v-flex xs4>
+              <v-flex sm6 md4 lg4 xl4 class="hidden-xs-only">
                 <v-container grid-list-xs fill-height>
                   <v-layout column wrap align-right>
                     <span class="title">About us</span>
@@ -14,7 +14,7 @@
                   </v-layout>
                 </v-container>
               </v-flex>
-              <v-flex xs4>
+              <v-flex md4 lg4 xl4 class="hidden-sm-and-down">
                 <!-- {{vmg}} -->
                 <v-container grid-list-xs fill-height>
                   <v-layout column wrap align-center>
@@ -30,13 +30,12 @@
                   </v-layout>
                 </v-container>
               </v-flex>
-              <v-flex xs4 class="pa-0 ma-0">
+              <v-flex xs12 sm6 md4 lg4 xl4 class="pa-0 ma-0">
                 <!-- {{company_info}} -->
                 <v-container grid-list-xs fill-height class="pa-0 ma-0">
                   <v-layout row wrap class="pa-0 ma-0" align-center>
                     <v-flex xs12 class="pa-0 ma-0 text-xs-center">
                       <iframe
-                        class="hidden-sm-and-down"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2753.6180494163523!2d-118.48048950632983!3d34.23957556532821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2909bdc69e17b%3A0x1c9055a8f0040f3!2s15909+Tupper+St%2C+North+Hills%2C+CA+91343%2C+USA!5e0!3m2!1sen!2sph!4v1561188172607!5m2!1sen!2sph"
                         width="250px"
                         height="100px"
@@ -44,19 +43,23 @@
                         style="border:0"
                         allowfullscreen
                       ></iframe>
-                      <br>
-                      <span><strong>{{company_info.comp_location}}</strong></span>
+                      <br />
+                      <span>
+                        <strong>{{company_info.comp_location}}</strong>
+                      </span>
 
                       <br />
                       <span>
-                        <strong>Mobile/Tel Number: </strong>
+                        <strong>Mobile/Tel Number:</strong>
                         {{company_info.comp_telnum}}
                       </span>
                       <span>/ {{company_info.comp_phonenum}}</span>
                       <br />
                       <span>
-                        <strong>Email:  </strong>
-                        <span class="email" @click="redirectEmail()">{{company_info.comp_email}}</span>
+                        <strong>Email:</strong>
+                        <span
+                          @click="redirectEmail()"
+                        >{{company_info.comp_email}}</span>
                       </span>
                       <br />
                       <strong>
@@ -91,8 +94,8 @@
           </span>
           <br />
           <span style="font-size:10px;">
-            Powered by
-            <strong>Acatour</strong>
+            Designed by
+            <strong @click="emailDesign()" class="email">Acatour Designs</strong>
           </span>
         </v-flex>
       </v-layout>
@@ -108,9 +111,7 @@ export default {
     icons: ["mdi-facebook", "mdi-twitter", "mdi-instagram"],
     links: ["home", "services", "about", "contact"]
   }),
-  beforeCreate() {
-    
-  },
+  beforeCreate() {},
   computed: {
     ...mapState({
       vmg: state => state.posts.vmg,
@@ -120,6 +121,9 @@ export default {
   methods: {
     redirectEmail() {
       window.open("mailto:LoveandCompassion@gmail.com?subject=Inquiries");
+    },
+    emailDesign(){
+      window.open("mailto:gedgalope@gmail.com?subject=Inquiries");
     },
     openSocial(social) {
       switch (social) {

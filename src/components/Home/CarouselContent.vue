@@ -6,29 +6,27 @@
           <v-layout column wrap>
             <v-flex xs12>
               <v-layout row class="pa-0 ma-0">
-                <v-flex xs6>
+                <v-flex xs12 sm6 md6 lg6 xl6 >
                   <span
                     class="title font-weight-regular font-italic"
-                    style="color:#757575; width:50% !important;"
+                    style="color:#757575;"
                   >{{carouselText.title}}</span>
                 </v-flex>
-                <v-flex xs6></v-flex>
               </v-layout>
             </v-flex>
             <v-divider color="black" style="width:50%;"></v-divider>
             <v-flex xs12>
-              <social-buttons :Round="true"></social-buttons>
+              <social-buttons></social-buttons>
             </v-flex>
             <v-divider color="black" style="width:62%;"></v-divider>
             <v-flex xs12>
               <v-layout row>
-                <v-flex xs6>
+                <v-flex xs12 sm12 md6 lg6 xl6 class="hidden-xs-only">
                   <span
                     class="display-1 font-weight-light"
                     style="color:#424242;"
                   >{{carouselText.text}}</span>
                 </v-flex>
-                <v-flex xs6></v-flex>
               </v-layout>
             </v-flex>
           </v-layout>

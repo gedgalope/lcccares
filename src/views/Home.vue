@@ -1,13 +1,17 @@
 <template>
   <!-- <HelloWorld /> -->
   <div class="home-page">
-    <home-carousel block></home-carousel>
+    <home-carousel></home-carousel>
     <divider class="py-4 my-4" :label="facilities_label"></divider>
     <facilities></facilities>
-    <v-parallax  :src="parallax_src" class="parallax">
+    <v-parallax  :src="parallax_src" class="parallax hidden-sm-and-down">
       <divider class="py-4 my-4" :label="services_label"></divider>
       <home-services></home-services>
     </v-parallax>
+      <divider class="py-4 my-4 hidden-md-and-up" :label="services_label"></divider>
+    <v-img  :src="parallax_src" class="hidden-md-and-up">
+      <home-services></home-services>
+    </v-img>
     <divider class="py-4 my-4" :label="team_label"></divider>
     <home-team></home-team>
   </div>
@@ -30,8 +34,6 @@ export default {
       services_label: "What we can provide",
       team_label: "Meet Our Team!"
     };
-  },
-  created() {
   },
   computed: {
     ...mapState({

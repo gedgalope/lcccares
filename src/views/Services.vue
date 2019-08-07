@@ -1,12 +1,13 @@
 <template>
   <div class="services--page">
     <gallery-thumbnail class="pa-1 ma-1"></gallery-thumbnail>
-    <v-parallax :src="parallax_src" class="parallax">
-    <divider class="py-4 my-4" label="Take a look around"></divider>
-
-        <!-- <divider class="py-4 my-4" label="Do not Worry"></divider> -->
-        <pagecomp-service></pagecomp-service>
+    <divider class="py-4 my-4 " label="Take a look around"></divider>
+    <v-parallax :src="parallax_src" class="parallax hidden-md-and-down">
+      <pagecomp-service></pagecomp-service>
     </v-parallax>
+    <v-img :src="parallax_src" class="hidden-lg-and-up">
+      <pagecomp-service></pagecomp-service>
+    </v-img>
   </div>
 </template>
 
@@ -17,8 +18,7 @@ import DividerVue from "../components/util/Divider.vue";
 import { mapState } from "vuex";
 export default {
   name: "services--page",
-  beforeCreate() {
-  },
+  beforeCreate() {},
   components: {
     "gallery-thumbnail": GalleryThumbnailVue,
     "pagecomp-service": PageServiceVue,

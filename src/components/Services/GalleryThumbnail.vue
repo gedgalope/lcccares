@@ -4,7 +4,7 @@
       <v-container fluid grid-list-sm fill-height pa-0>
         <v-layout row wrap>
           <v-flex xs12 lg6 md6 sm8 grow>
-            <v-card hover class="hidden-xs-only" id="v-card">
+            <v-card hover class="hidden-sm-and-down" id="v-card">
               <v-img :src="gallery[0]" aspect-ratio="1.8" id="v-img" @click="changeIndex(0)"></v-img>
             </v-card>
           </v-flex>
@@ -34,8 +34,8 @@
               </v-layout>
             </v-container>
           </v-flex>
-          <v-flex xs12 class="hidden-sm-and-up">
-            <v-carousel :hide-delimiters="true" :cycle="false">
+          <v-flex xs12 class="hidden-md-and-up">
+            <v-carousel hide-delimiters hide-controls>
               <template v-for="(photo,index) in gallery">
                 <v-carousel-item :key="index" :src="photo" />
               </template>
@@ -98,24 +98,18 @@
       <v-icon color="#0077B5" medium>mdi-linkedin</v-icon>
     </v-btn>
     <media-gallery :photos="gallery" :imageIndex="imageIndex"></media-gallery>
-    <!-- <slide-show :index="imageIndex" :photos="catererData.photos" /> -->
-    <!-- <view-caterer-share :catererDescription="catererData.description" ></view-caterer-share> -->
-    <!-- <slide-show :index="imageIndex" :photos="catererData.photos" :ishidden="dialog" @close="dialog=false"/> -->
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
 import FacilitiesMediaVue from '../Home/FacilitiesMedia.vue';
-// import ViewCatererModal from "./ViewCatererModal"
-// import ViewCatererShare from './ViewCatererShare'
 export default {
   name: "gallery-thumbnail",
   beforeCreate() {
   },
   data() {
     return {
-      // dialog: false,
       imageIndex:0
     };
   },
@@ -125,17 +119,12 @@ export default {
       ishidden:state =>state.utils.ishidden
     })
   },
-  // props:{
-  //   catererData:Object
-  // },
   methods: {
     ...mapMutations({
       changeState: "utils/changeState",
     }),
     shareToSocial(social) {
-      let currentURL = window.location.href;
-      social;
-      // console.log(currentURL)
+      // let currentURL = window.location.href;
       switch (social) {
         case 0:
           window.open("https://www.facebook.com/sharer/sharer.php");
@@ -157,33 +146,10 @@ export default {
       this.imageIndex=index;
       this.changeState();
     }
-    //   limitUrls(index) {
-    //     if (index > 0 && index < 5) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    //   viewPicture(index) {
-    //     /* eslint-disable no-console */
-    //     // console.log('hello');
-    //     /* eslint-enable no-console */
-    //     this.changeState();
-    //     for(var i=0;i<=this.catererData.photos.length;i++){
-    //       if(i==index){
-    //         this.selectedImage([i,true]);
-    //       }else{
-    //         this.selectedImage([i,false]);
-    //       }
-    //     }
-    //     this.imageIndex= index;
   },
   components: {
     'media-gallery':FacilitiesMediaVue
   }
-  // props:{
-  //     data:Array
-  // },
 };
 </script>
 
