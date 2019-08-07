@@ -112,7 +112,6 @@ import FacilitiesMediaVue from '../Home/FacilitiesMedia.vue';
 export default {
   name: "gallery-thumbnail",
   beforeCreate() {
-    this.$store.dispatch("media/getGalleryItems");
   },
   data() {
     return {

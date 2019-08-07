@@ -42,7 +42,6 @@ import { mapState } from "vuex";
 export default {
   name: "home-services",
   created() {
-    this.$store.dispatch("services/getServicesPost");
   },
   computed: {
     ...mapState({

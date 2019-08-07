@@ -31,7 +31,6 @@ export default {
     CarouselContent
   },
   created(){
-    this.$store.dispatch('media/getCarouselMedia');
   },
   computed: {
     ...mapState({

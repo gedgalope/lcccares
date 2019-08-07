@@ -56,8 +56,6 @@ import FacilitiesMediaVue from './FacilitiesMedia.vue';
 export default {
   name: "facilities",
   beforeCreate() {
-    this.$store.dispatch("media/getroomsMedia");
-    this.$store.dispatch("posts/getFacilitiesContent");
   },
   data() {
     return {

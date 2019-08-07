@@ -33,7 +33,6 @@ import { mapState } from "vuex";
 export default {
   name: "pagecomp-services",
   created() {
-    this.$store.dispatch("services/getServicesPost");
   },
   computed: {
     ...mapState({

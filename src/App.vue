@@ -51,7 +51,17 @@
 import FooterVue from "./views/Footer";
 export default {
   name: "App",
-  created() {},
+  beforeCreate() {
+    this.$store.dispatch("posts/getFacilitiesContent");
+    this.$store.dispatch("posts/getVMG");
+    this.$store.dispatch("media/getParallax");
+    this.$store.dispatch("posts/getCompanyInfo");
+    this.$store.dispatch("media/getroomsMedia");
+    this.$store.dispatch('media/getCarouselMedia');
+    this.$store.dispatch("services/getServicesPost");
+    this.$store.dispatch("team/getTeamMembers");
+    this.$store.dispatch("media/getGalleryItems");
+  },
   components: {
     "app-footer": FooterVue
   },

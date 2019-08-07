@@ -18,7 +18,6 @@ import { mapState } from "vuex";
 export default {
   name: "services--page",
   beforeCreate() {
-    this.$store.dispatch("media/getParallax");
   },
   components: {
     "gallery-thumbnail": GalleryThumbnailVue,

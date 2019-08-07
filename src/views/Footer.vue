@@ -109,8 +109,7 @@ export default {
     links: ["home", "services", "about", "contact"]
   }),
   beforeCreate() {
-    this.$store.dispatch("posts/getVMG");
-    this.$store.dispatch("posts/getCompanyInfo");
+    
   },
   computed: {
     ...mapState({

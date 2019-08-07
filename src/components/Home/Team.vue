@@ -40,7 +40,6 @@ import { mapState } from "vuex";
 export default {
   name: "home-team",
   beforeCreate() {
-    this.$store.dispatch("team/getTeamMembers");
   },
   computed: {
     ...mapState({

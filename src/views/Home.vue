@@ -32,7 +32,6 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch("media/getParallax");
   },
   computed: {
     ...mapState({
