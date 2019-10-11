@@ -3,31 +3,31 @@
     <v-card flat color="transparent">
       <v-container fluid grid-list-sm fill-height pa-0>
         <v-layout row wrap>
-          <v-flex xs12 lg6 md6 sm8 grow>
-            <v-card hover class="hidden-sm-and-down" id="v-card">
+          <v-flex xl6 lg6 md6 class="hidden-sm-and-down">
+            <v-card hover id="v-card">
               <v-img :src="gallery[0]" aspect-ratio="1.8" id="v-img" @click="changeIndex(0)"></v-img>
             </v-card>
           </v-flex>
-          <v-flex xs12 sm4 md6 shrink>
+          <v-flex md6 class="hidden-sm-and-down">
             <v-container fluid grid-list-xs pa-0>
               <v-layout row wrap justify-space-around>
                 <v-flex md6 sm6>
-                  <v-card hover class="hidden-sm-and-down" id="v-card">
+                  <v-card hover  id="v-card">
                     <v-img :src="gallery[1]" aspect-ratio="1.8" id="v-img" @click="changeIndex(1)"></v-img>
                   </v-card>
                 </v-flex>
                 <v-flex md6>
-                  <v-card hover class="hidden-md-and-down" id="v-card">
+                  <v-card hover id="v-card">
                     <v-img :src="gallery[2]" aspect-ratio="1.8" id="v-img" @click="changeIndex(2)"></v-img>
                   </v-card>
                 </v-flex>
                 <v-flex md6 sm6>
-                  <v-card hover class="hidden-sm-and-down" id="v-card">
+                  <v-card hover id="v-card">
                     <v-img :src="gallery[3]" aspect-ratio="1.8" id="v-img" @click="changeIndex(3)"></v-img>
                   </v-card>
                 </v-flex>
                 <v-flex md6>
-                  <v-card hover class="hidden-md-and-down" id="v-card">
+                  <v-card hover id="v-card">
                     <v-img :src="gallery[4]" aspect-ratio="1.8" id="v-img" @click="changeIndex(4)"></v-img>
                   </v-card>
                 </v-flex>
@@ -54,7 +54,7 @@
       bottom
       left
       fab
-      @click="shareToSocial(1)"
+      @click="shareToSocial(0)"
     >
       <v-icon color="#2f55a4">mdi-facebook</v-icon>
     </v-btn>
@@ -67,7 +67,7 @@
       bottom
       left
       fab
-      @click="shareToSocial(2)"
+      @click="shareToSocial(1)"
     >
       <v-icon color="#38A1F3" medium>mdi-twitter</v-icon>
     </v-btn>
@@ -80,7 +80,7 @@
       bottom
       left
       fab
-      @click="shareToSocial(3)"
+      @click="shareToSocial(2)"
     >
       <v-icon color="#c8232c" medium>mdi-pinterest</v-icon>
     </v-btn>
@@ -93,7 +93,7 @@
       bottom
       left
       fab
-      @click="shareToSocial(4)"
+      @click="shareToSocial(3)"
     >
       <v-icon color="#0077B5" medium>mdi-linkedin</v-icon>
     </v-btn>
@@ -103,25 +103,24 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import FacilitiesMediaVue from '../Home/FacilitiesMedia.vue';
+import FacilitiesMediaVue from "../Home/FacilitiesMedia.vue";
 export default {
   name: "gallery-thumbnail",
-  beforeCreate() {
-  },
+  beforeCreate() {},
   data() {
     return {
-      imageIndex:0
+      imageIndex: 0
     };
   },
   computed: {
     ...mapState({
       gallery: state => state.media.gallery,
-      ishidden:state =>state.utils.ishidden
+      ishidden: state => state.utils.ishidden
     })
   },
   methods: {
     ...mapMutations({
-      changeState: "utils/changeState",
+      changeState: "utils/changeState"
     }),
     shareToSocial(social) {
       // let currentURL = window.location.href;
@@ -142,13 +141,13 @@ export default {
           break;
       }
     },
-    changeIndex(index){
-      this.imageIndex=index;
+    changeIndex(index) {
+      this.imageIndex = index;
       this.changeState();
     }
   },
   components: {
-    'media-gallery':FacilitiesMediaVue
+    "media-gallery": FacilitiesMediaVue
   }
 };
 </script>
