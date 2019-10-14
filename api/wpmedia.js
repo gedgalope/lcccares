@@ -36,5 +36,8 @@ export default {
   },
   getGallery(){
     return api().get("wp/v2/media?parent=112&per_page=30")
+  },
+  getLogo(){
+    return api().get("wp/v2/media?parent=134")
   }
 }

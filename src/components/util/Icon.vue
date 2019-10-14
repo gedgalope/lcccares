@@ -9,7 +9,7 @@
     <title
       :id="iconName"
       lang="en"
-    >{{ iconName }} icon</title>
+    >{{ iconName }}</title>
     <g :fill="iconColor">
       <slot />
     </g>

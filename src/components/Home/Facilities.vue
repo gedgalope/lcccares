@@ -73,16 +73,16 @@ export default {
     }),
     facilityMedia(facility,content){
       /*eslint-disable*/
-      console.log(facility);
-      if(facility=='Clinic'){
+      // console.log(facility);
+      if(facility=='Facility\'s Clinic'){
         this.clickedFacility = this.facilities_media.clinic;
-      }else if(facility=='Comfort Roons'){
+      }else if(facility=='Comfort Rooms'){
         this.clickedFacility = this.facilities_media.comfort;
-      }else if(facility=='Bedrooms'){
+      }else if(facility=='Beds and Bedrooms'){
         this.clickedFacility = this.facilities_media.bed;
-      }else if(facility=='Kitchen Area'){
+      }else if(facility=='Kitchen and Cooking Space'){
         this.clickedFacility = this.facilities_media.kitchen;
-      }else if(facility=='Staff'){
+      }else if(facility=='Meet out Staff'){
         this.clickedFacility = this.facilities_media.staff;
       }else {
         this.clickedFacility = this.facilities_media.room;

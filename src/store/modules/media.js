@@ -14,6 +14,7 @@ const state={
   facilitiesMedia:{},
   parallax_src:'',
   gallery:[],
+  logo_src:''
 }
 
 const mutations={
@@ -28,6 +29,9 @@ const mutations={
   },
   storeGalllery(state,payload){
     state.gallery =[...payload]
+  },
+  storeLogo(state,payload){
+    state.logo_src = payload;
   }
 }
 const getters={
@@ -79,6 +83,11 @@ const actions={
     });
     // console.log(itemBuffer)
     commit("storeGalllery",itemBuffer);
+  },
+  async getLogo({commit}){
+    let logoMedia = await wpmedia.getLogo();
+    // console.log(logoMedia.data[0].source_url)
+    commit('storeLogo',logoMedia.data[0].source_url);
   }
 
 }

@@ -25,6 +25,7 @@ export default {
     this.$store.dispatch("services/getServicesPost");
     this.$store.dispatch("team/getTeamMembers");
     this.$store.dispatch("media/getGalleryItems");
+    this.$store.dispatch("media/getLogo");
   },
   components: {
     "app-footer": FooterVue,
