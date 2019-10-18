@@ -5,7 +5,7 @@
         <v-flex xs12 sm6 md6 lg6 xl6 class="pa-0 ma-0">
           <span class="hidden-sm-and-down text-xs-center">
             <v-layout row class="pa-0 ma-0">
-              <v-flex v-for="(socialmedia, index) in social" :key="index" xs3 shrink>
+              <v-flex v-for="(socialmedia, index) in social" :key="index" xs2 shrink>
                 <v-btn
                   :color="socialmedia.bgColor"
                   round

@@ -14,10 +14,10 @@
 
       <span class="hidden-xs-only">
         <v-tabs color="transparent">
-          <v-tab optional exact large class="vtab text-capitalize" replace to="/">Home</v-tab>
+          <v-tab optional exact large class="vtab text-capitalize" replace to="/home">Home</v-tab>
           <v-tab optional exact large class="vtab text-capitalize" replace to="/services">Services</v-tab>
           <!-- <v-tab optional exact large class="vtab text-capitalize" replace to="/about">About Us</v-tab> -->
-          <v-tab optional exact large class="vtab text-capitalize" replace to="/contact">About Us</v-tab>
+          <v-tab optional exact large class="vtab text-capitalize" replace to="/about">About Us</v-tab>
         </v-tabs>
       </span>
       <span class="hidden-sm-and-up">
@@ -26,7 +26,7 @@
             <v-icon>mdi-apps</v-icon>
           </v-btn>
           <v-list>
-            <v-list-tile replace to="/">
+            <v-list-tile replace to="/home">
               <v-list-tile-title>Home</v-list-tile-title>
             </v-list-tile>
             <v-list-tile replace to="/services">
@@ -35,7 +35,7 @@
             <!-- <v-list-tile replace to="/about">
               <v-list-tile-title>About Us</v-list-tile-title>
             </v-list-tile> -->
-            <v-list-tile replace to="/contact">
+            <v-list-tile replace to="/about">
               <v-list-tile-title>About Us</v-list-tile-title>
             </v-list-tile>
           </v-list>

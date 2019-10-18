@@ -1,19 +1,37 @@
 <template>
-  <div class="HomeCarousel pa-0 ma-0">
+  <div class="HomeCarousel">
     <!-- {{carousel_src}} -->
     <!-- {{CarouselText[0]}} -->
-    <v-carousel hide-delimiters show-arrows show-arrows-on-hover>
+    <v-carousel
+      interval="10000"
+      transition="car-trans"
+      hide-delimiters
+    >
       <template v-for="(imageData, index) in carousel_src">
-        <v-carousel-item :key="index" @mouseover="showContent=true" @mouseleave="showContent=false">
-          <v-parallax :src="imageData">
+        <v-carousel-item
+          :key="index"
+          @mouseover="showContent=true"
+          @mouseleave="showContent=false"
+          transition="carousel"
+          reverse="carousel"
+        >
+          <v-img aspect-ratio="3.04" :src="imageData">
+            <div style="height: 374px;"></div>
+
             <!-- <v-scroll-y-transition> -->
             <transition name="slide-fade">
-              <carousel-content :carouselText="putText(index)" v-show="showContent"></carousel-content>
+              <!-- <v-container align-end fill-height class="pa-0 ma-0"> -->
+              <carousel-content
+                style="width:100%;"
+                :carouselText="putText(index)"
+                v-show="showContent"
+              ></carousel-content>
+              <!-- </v-container> -->
             </transition>
 
             <!-- {{showContent}} -->
             <!-- </v-scroll-y-transition> -->
-          </v-parallax>
+          </v-img>
         </v-carousel-item>
       </template>
     </v-carousel>
@@ -57,14 +75,26 @@ export default {
 
 <style scoped>
 .slide-fade-enter-active {
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-enter, .slide-fade-leave-to
+.slide-fade-enter, .slide-fade-leave-active
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(10px);
+  opacity: 0;
+}
+
+.carousel-enter-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.carousel-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.carousel-enter, .carousel-leave-active
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateZ(10px);
   opacity: 0;
 }
 </style>

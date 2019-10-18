@@ -82,7 +82,7 @@ export default {
         this.clickedFacility = this.facilities_media.bed;
       }else if(facility=='Kitchen and Cooking Space'){
         this.clickedFacility = this.facilities_media.kitchen;
-      }else if(facility=='Meet out Staff'){
+      }else if(facility=='Meet our Staff'){
         this.clickedFacility = this.facilities_media.staff;
       }else {
         this.clickedFacility = this.facilities_media.room;
